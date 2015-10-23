@@ -1,0 +1,3 @@
+#!/bin/sh
+# Simple script to just keep the container running
+while (true); do sleep 30; done

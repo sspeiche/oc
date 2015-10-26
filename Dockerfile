@@ -11,5 +11,6 @@ FROM centos
 MAINTAINER Steve Speicher <sspeiche@redhat.com>
 ADD bin/oc /bin/oc
 ADD bin/busy /bin/busy
-
+RUN mkdir /.kube
+RUN chmod 777 /.kube -r
 ENTRYPOINT ["/bin/busy"]

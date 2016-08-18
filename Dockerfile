@@ -8,7 +8,6 @@
 #
 FROM rhel
 
-
 MAINTAINER Steve Speicher <sspeiche@redhat.com>
 ADD bin/oc /bin/oc
 RUN chmod 755 /bin/oc

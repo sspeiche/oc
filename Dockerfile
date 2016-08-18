@@ -6,11 +6,17 @@
 #
 # The standard name for this image is sspeiche/oc
 #
-FROM centos
+FROM rhel
+
 
 MAINTAINER Steve Speicher <sspeiche@redhat.com>
 ADD bin/oc /bin/oc
+RUN chmod 755 /bin/oc
 ADD bin/busy /bin/busy
+RUN chmod 755 /bin/busy
 RUN mkdir /.kube
-RUN chmod 777 /.kube -r
+RUN chmod 777 /.kube
+
+USER 1000
+
 ENTRYPOINT ["/bin/busy"]

@@ -9,8 +9,9 @@
 FROM openshift/origin
 
 MAINTAINER Steve Speicher <sspeiche@redhat.com>
-
-RUN  rm -f /usr/bin/oadm \
+ADD bin/busy /bin/busy
+RUN chmod 755 /bin/busy && \
+    rm -f /usr/bin/oadm \
     /usr/bin/origin /usr/bin/openshift-deploy \
     /usr/bin/openshift-recycle /usr/bin/openshift-router \
     /usr/bin/openshift-docker-build /usr/bin/openshift-f5-router

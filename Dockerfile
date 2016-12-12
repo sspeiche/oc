@@ -6,15 +6,14 @@
 #
 # The standard name for this image is sspeiche/oc
 #
-FROM rhel
+FROM openshift/origin
 
 MAINTAINER Steve Speicher <sspeiche@redhat.com>
-ADD bin/oc /bin/oc
-RUN chmod 755 /bin/oc
-ADD bin/busy /bin/busy
-RUN chmod 755 /bin/busy
-RUN mkdir /.kube
-RUN chmod 777 /.kube
+
+RUN  rm -f /usr/bin/oadm \
+    /usr/bin/origin /usr/bin/openshift-deploy \
+    /usr/bin/openshift-recycle /usr/bin/openshift-router \
+    /usr/bin/openshift-docker-build /usr/bin/openshift-f5-router
 
 USER 1000
 
